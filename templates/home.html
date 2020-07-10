@@ -5,7 +5,7 @@
     <title>Spam Detector</title>
 <style>
 .sn h1{
-font-size: 80px;
+font-size: 75px;
 color: white;
 background-image:url('static/clip.jpg') ;
 -webkit-background-clip:text;
@@ -45,12 +45,24 @@ div button:hover{ font-weight: bold;}
   visibility: visible;
 }
 
-
-
-
 button{
-  background-color:rgb(0, 140, 255);width: auto; border-radius: 8px;padding: 0%;margin: 0%;font-size: 25px ; color: white;margin: 0 0;text-align: center;text-decoration: none;border: none;
+  background-color:rgb(0, 140, 255); outline: none; width: auto; border-radius: 8px;padding: 0%;margin: 0%;font-size: 25px ; color: white;margin: 0 0;text-align: center;text-decoration: none;border: none;
 }
+
+.message-box{
+background: none;color: white; width: 50%;}
+    .txt{
+        text-align: center;
+        margin: 0 0;
+    }
+@media only screen and (max-width : 720px) {
+.message-box{
+width:80%;
+height:30%;
+}
+    .sn h1{
+        font-size:5em;
+    }
 </style>
 </head>
 <body  style="text-align: center;margin: 0 0; background-image:url('static/df.jfif') ; background-size: 100% 100%;background-repeat: no-repeat;background-attachment: fixed;">
@@ -85,12 +97,18 @@ button{
         </div>
         </div>
 <br>
-        <form action="{{ url_for('predict') }}" method="POST">
-            <textarea style="background: none;color: white; width: 50%;" class='message-box' name="message" rows="22" placeholder="Check for spam messages..."></textarea><br/>
+
+        <form class="form" action="{{ url_for('predict') }}" method="POST">
+
+          <div id="ta">
+            <textarea class='message-box' name="message" rows="22" placeholder="Check for spam messages..."></textarea><br/>
+          </div>
+           
             <br>
-           <a href=""><input type="submit" value=" Predict " style="color: white; text-align: center;font-size: 25PX; background-color:rgb(0, 140, 255);border-radius: 10px; padding: 0%;margin: 0%; border: none;">
+           <a href=""><input type="submit" value=" Predict " style=" outline: none; color: white; text-align: center;font-size: 25PX; background-color:rgb(0, 140, 255);border-radius: 10px; padding: 0%;margin: 0%; border: none;">
            </a>
           </form>
         
+
 </body>
 </html>
